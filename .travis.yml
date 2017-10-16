@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode9.1
 xcode_project: GoogleAnalyticsTracker.xcodeproj
-xcode_scheme: GoogleAnalyticsTracker.
+xcode_scheme: GoogleAnalyticsTracker
 xcode_sdk: macosx10.13
 env:
   global:
