@@ -1,0 +1,25 @@
+language: objective-c
+osx_image: xcode9.1
+xcode_project: GoogleAnalyticsTracker.xcodeproj
+xcode_scheme: GoogleAnalyticsTracker.
+xcode_sdk: macosx10.13
+env:
+  global:
+  - FRAMEWORK_NAME = GoogleAnalyticsTracker
+before_install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+before_script:
+- carthage bootstrap
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+deploy:
+  provider: releases
+  api_key:
+    secure: Q+0S/YjT6oSTckvBk0PLE/dIKysB5PGfczXw5Bgz2lTW8e3i6Ft88FfXRiixFOrmo8ZMAHX/aUFs+VGQNhIhJkagZnuHW2DZIl9UQmgGe+8wshYzPxgKu4oVyF7s0t3fiRU39dFeINMSDDpUz5g9Lql0H/Bw6S0UzvUb6+tuZF73nX1c5ZZEurHz2Rl9PhQvRXBzH1Q80ntGyziUJPEI6ZbgPGUr7q1ry3MIWz1GbidV4JDGpTduPd1qQCVSNZL6b1UbF5OAAIq7VfBlt2/faYXH51xPcr9YdP78Hg/eTAkmI/I1biIyxsgkc4vqhq4ipAH2Qpd2DrfMfsmLIs1ZDtbsyzgq0hn2sX4ryYsX7QzBABmWsNiphQ7Fi8kY8zYoUuxQTAsiTLRBVkhkCpbauXsQxWzcKgJSLb1JNghlMmr1OOiJy+X7GncKgDTuIjnleMw5qQRBKN3Q1+elAG2U1kM2w8UjZPyBeEZren5SiiRRaUIMMD4lPHYzHc1SiK2RQC9n3bDDG/ejF+lFe2j9O7qOg6e+hsx/mDL5gzQHFIumOOh4shuszgJJkuhF0S29mf0WqLAFTPl4rQf8sDy3nVQqaZphg2fYZ9c/lGnPcLBMWfmuz4Cmg01wTgZwz/xwRvxRXczD3zNOJsCFt7XL4BDmQ2Du0P0SbU6gIlZ6W48=
+  file: "./GoogleAnalyticsTracker.framework.zip"
+  skip_cleanup: true
+  on:
+    repo: AmatsuZero/Google-Analytics-for-OS-X
+    tags: true
