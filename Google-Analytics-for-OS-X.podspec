@@ -6,11 +6,11 @@ Pod::Spec.new do |s|
   This is an Objective-C wrapper around Google's Measurement Protocol
                        DESC
 
-  s.homepage         = "https://github.com/MacPaw/Google-Analytics-for-OS-X"
+  s.homepage         = "https://github.com/AmatsuZero/Google-Analytics-for-OS-X"
   s.screenshots     = "http://raw.githubusercontent.com/MacPaw/Google-Analytics-for-OS-X/master/screenshot.png"
   s.license          = 'MIT'
   s.author           = { "Denys Stas" => "zyafa@macpaw.com" }
-  s.source           = { :git => "https://github.com/MacPaw/Google-Analytics-for-OS-X.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/AmatsuZero/Google-Analytics-for-OS-X.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/MacPaw'
 
   s.platform     = :osx, '10.9'
